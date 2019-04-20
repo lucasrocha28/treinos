@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef enum { false, true } bool;
 int main(){
 	FILE *fp;
 	char palavra[20];
@@ -10,7 +9,6 @@ int main(){
 	char nome[20];
 	char patente_graduacao_tipo[20];
 	char hora[20];
-	
 	fp = fopen("entradas_e_saidas.txt", "a");
 	if(fp == NULL){
 		printf("Erro ao abrir arquivo.\n");
@@ -20,7 +18,14 @@ int main(){
 	printf("Digite a data de Hoje: ");
 	scanf("%s", palavra);
 	fprintf(fp, "\nData: %s\n", palavra);
+	fclose(fp);
 	for(int i = 0; i < 32; i++){
+		fp = fopen("entradas_e_saidas.txt", "a");
+		if(fp == NULL){
+			printf("Erro ao abrir arquivo.\n");
+			system("pause");
+			return 1;
+		}
 		printf ("\n\nNovo veiculo.\n\n");
 		printf("Entrada-Saída de veículos\n");
 		printf("Tipo - Entrada-Saída: ");
@@ -36,18 +41,11 @@ int main(){
 		printf("Horario: ");
 		scanf("%s", hora);
 		fprintf(fp,
-		"\n------------------------\n
-		Tipo: %s.\n
-		Veiculo: %s.\n
-		Placa: %s.\n
-		Nome: %s.\n
-		Patente/Graduacao: %s.\n
-		Horario: %s.\n
-		-------------------------\n\n",
+		"\n------------------------\nTipo: %s.\nVeiculo: %s.\nPlaca: %s.\nNome: %s.\nPatente/Graduacao: %s.\nHorario: %s.\n-------------------------\n\n",
 		tipo, veiculo, placa, nome, 
 		patente_graduacao_tipo, hora);
+		fclose(fp);
 	}
-	fclose(fp);
 	system("pause");
 	return 0;
 }
