@@ -21,18 +21,19 @@ int main(){
 	scanf("%s", palavra);
 	fprintf(fp, "\nData: %s\n", palavra);
 	for(int i = 0; i < 32; i++){
-		printf("Entrada-Saída de veículos\n");
-		printf("Tipo - Entrada-Saída: ");
+		printf ("\n\nNovo veiculo.\n\n");
+		printf("Entrada-SaÃ­da de veÃ­culos\n");
+		printf("Tipo - Entrada-SaÃ­da: ");
 		scanf("%s", tipo);
-		printf("Veiculo - Modelo-Cor-Tipo: ");
+		printf("Veiculo: ");
 		scanf("%s", veiculo);
-		printf("Placa - OHW-3505: ");
+		printf("Placa: ");
 		scanf("%s", placa);
-		printf("Nome - Joao-Silva-Oliveira: ");
+		printf("Nome: ");
 		scanf("%s", nome);
-		printf("Tipo de Autoridade - Oficial-Bm-Sgt-Pm-Civil-Gov: ");
+		printf("Tipo de Autoridade: ");
 		scanf("%s", patente_graduacao_tipo);
-		printf("Horario - 22-33-Manha-Tarde: ");
+		printf("Horario: ");
 		scanf("%s", hora);
 		fprintf(fp,
 		"\n------------------------\n
@@ -42,10 +43,11 @@ int main(){
 		Nome: %s.\n
 		Patente/Graduacao: %s.\n
 		Horario: %s.\n
-		-------------------------\n\n"
+		-------------------------\n\n",
 		tipo, veiculo, placa, nome, 
 		patente_graduacao_tipo, hora);
 	}
 	fclose(fp);
+	system("pause");
 	return 0;
-{
+}
